@@ -17,12 +17,13 @@ pub fn build(b: *std.build.Builder) void {
     const exe = b.addExecutable("aoc", file);
     exe.setTarget(target);
     exe.setBuildMode(mode);
-    exe.addPackagePath("input", "src/utils/input.zig");
+    //exe.addPackagePath("input", "src/utils/input.zig");
     exe.install();
 
     const run_cmd = exe.run();
     run_cmd.step.dependOn(b.getInstallStep());
     if (b.args) |args| {
+        std.debug.print("ARGS: {s}\n", .{args});
         run_cmd.addArgs(args);
     }
 
