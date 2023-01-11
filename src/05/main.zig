@@ -15,7 +15,6 @@ fn deinitStacks(stacks: []std.ArrayList(u8)) void {
     for (stacks) |s| {
         s.deinit();
     }
-    // alloc.free(stacks);
 }
 
 pub fn main() !void {
